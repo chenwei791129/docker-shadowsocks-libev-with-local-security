@@ -30,7 +30,7 @@ $ docker run -d --privileged -p 8388:8388 -e GATEWAY_IP="192.168.0.1" -e PASSWOR
 see [shadowsocks/shadowsocks-libev dockerfile](https://hub.docker.com/r/shadowsocks/shadowsocks-libev/dockerfile)
 
 ## Related Projects
-- [shadowsocks/shadowsocks-libev](https://github.com/shadowsocks/shadowsocks-libev)
+- [shadowsocks/shadowsocks-libev](https://hub.docker.com/r/shadowsocks/shadowsocks-libev)
 
 ## License
 The repository is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
