@@ -19,4 +19,4 @@ CMD /bin/sh /tmp/setup-iptables.sh && \
       -u \
       $ARGS
 
-EXPOSE 8388
+EXPOSE 8388 8388/udp
