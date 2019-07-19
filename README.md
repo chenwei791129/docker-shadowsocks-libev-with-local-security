@@ -10,15 +10,13 @@ This project added iptables rules to restrict access to private ip.
 
 [View on Docker Hub](https://hub.docker.com/r/awei/shadowsocks-libev-with-local-security)
 ```console
-$ docker run -d --privileged -p <PORT>:<DOCKER-PORT> -p <PORT>:<DOCKER-PORT>/udp -e DOCKER_SUBNET="172.16.0.0/16" -e GATEWAY_IP="<GATEWAY_IP>" -e PASSWORD="<PASSWORD>" -e METHOD="<METHOD>" awei/shadowsocks-libev-with-local-security
+$ docker run -d --privileged -p <PORT>:<DOCKER-PORT> -p <PORT>:<DOCKER-PORT>/udp -e PASSWORD="<PASSWORD>" -e METHOD="<METHOD>" awei/shadowsocks-libev-with-local-security
 ```
 ```e.g.
-$ docker run -d --privileged -p 8388:8388 -p 8388:8388/udp -e DOCKER_SUBNET="172.16.0.0/16" -e GATEWAY_IP="192.168.0.1" -e PASSWORD="P@ssw0rd" -e METHOD="aes-256-gcm" awei/shadowsocks-libev-with-local-security
+$ docker run -d --privileged -p 8388:8388 -p 8388:8388/udp -e PASSWORD="P@ssw0rd" -e METHOD="aes-256-gcm" awei/shadowsocks-libev-with-local-security
 ```
 ### Necessary Environment Variables
-* `GATEWAY_IP` Your default gateway in LAN (example: 192.168.0.1)
 * `PASSWORD` Set a password
-* `DOCKER_SUBNET` The docker subnet CIDR (e.g. 172.16.0.0/16)
 
 ### Option Environment Variables
 
