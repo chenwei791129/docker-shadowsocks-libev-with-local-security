@@ -1,6 +1,7 @@
 FROM shadowsocks/shadowsocks-libev
 
 ENV GATEWAY_IP=
+ENV DOCKER_SUBNET=
 
 USER root
 
