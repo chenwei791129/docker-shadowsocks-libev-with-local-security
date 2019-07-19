@@ -10,10 +10,10 @@ This project added iptables rules to restrict access to private ip.
 
 [View on Docker Hub](https://hub.docker.com/r/awei/shadowsocks-libev-with-local-security)
 ```console
-$ docker run -d --privileged -p <PORT>:<DOCKER-PORT> -p <PORT>:<DOCKER-PORT>/udp -e PASSWORD="<PASSWORD>" -e METHOD="<METHOD>" awei/shadowsocks-libev-with-local-security
+$ docker run -d --privileged -p <PORT>:<DOCKER-PORT> -p <PORT>:<DOCKER-PORT>/udp -e PASSWORD="<PASSWORD>" awei/shadowsocks-libev-with-local-security
 ```
 ```e.g.
-$ docker run -d --privileged -p 8388:8388 -p 8388:8388/udp -e PASSWORD="P@ssw0rd" -e METHOD="aes-256-gcm" awei/shadowsocks-libev-with-local-security
+$ docker run -d --privileged -p 8388:8388 -p 8388:8388/udp -e PASSWORD="P@ssw0rd" awei/shadowsocks-libev-with-local-security
 ```
 ### Necessary Environment Variables
 * `PASSWORD` Set a password
