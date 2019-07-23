@@ -12,8 +12,62 @@ This project added iptables rules to restrict access to private ip.
 ```console
 $ docker run -d --privileged -p <PORT>:<DOCKER-PORT> -p <PORT>:<DOCKER-PORT>/udp -e PASSWORD="<PASSWORD>" awei/shadowsocks-libev-with-local-security
 ```
-```e.g.
+e.g.
+```
 $ docker run -d --privileged -p 8388:8388 -p 8388:8388/udp -e PASSWORD="P@ssw0rd" awei/shadowsocks-libev-with-local-security
+```
+deploy to kubernetes example:
+```
+kind: Service
+apiVersion: v1
+metadata:
+  name: service-shadowsocks
+spec:
+  selector:
+    app: shadowsocks-1
+  ports:
+    - name: tcp
+      protocol: TCP
+      port: 1688
+      targetPort: 8388
+      nodePort: 30000
+    - name: udp
+      protocol: UDP
+      port: 1688
+      targetPort: 8388
+      nodePort: 30000
+  type: NodePort
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-shadowsocks-1
+  labels:
+    app: shadowsocks-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shadowsocks-1
+  template:
+    metadata:
+      labels:
+        app: shadowsocks-1
+    spec:
+      containers:
+      - name: pod-shadowsocks
+        image: awei/shadowsocks-libev-with-local-security:latest
+        env:
+        - name: PASSWORD
+          value: "P@ssw0rd"
+        - name: METHOD
+          value: "aes-256-gcm"
+        ports:
+        - containerPort: 8388
+        securityContext:
+          privileged: true
 ```
 ### Necessary Environment Variables
 * `PASSWORD` Set a password
