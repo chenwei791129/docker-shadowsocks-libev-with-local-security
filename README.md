@@ -17,7 +17,7 @@ e.g.
 $ docker run -d --privileged -p 8388:8388 -p 8388:8388/udp -e PASSWORD="P@ssw0rd" awei/shadowsocks-libev-with-local-security
 ```
 deploy to kubernetes example:
-```
+```yaml
 kind: Service
 apiVersion: v1
 metadata:
