@@ -28,12 +28,12 @@ spec:
   ports:
     - name: tcp
       protocol: TCP
-      port: 1688
+      port: 8388
       targetPort: 8388
       nodePort: 30000
     - name: udp
       protocol: UDP
-      port: 1688
+      port: 8388
       targetPort: 8388
       nodePort: 30000
   type: NodePort
