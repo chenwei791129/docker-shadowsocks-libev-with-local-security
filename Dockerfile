@@ -1,4 +1,6 @@
-FROM shadowsocks/shadowsocks-libev
+ARG BASE_IMAGE
+ARG IMAGE_VERSION
+FROM ${BASE_IMAGE}:${IMAGE_VERSION}
 
 USER root
 
