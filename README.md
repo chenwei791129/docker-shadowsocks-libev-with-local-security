@@ -21,10 +21,10 @@ deploy to kubernetes example:
 kind: Service
 apiVersion: v1
 metadata:
-  name: service-shadowsocks
+  name: shadowsocks
 spec:
   selector:
-    app: shadowsocks-1
+    app: shadowsocks
   ports:
     - name: tcp
       protocol: TCP
@@ -37,24 +37,23 @@ spec:
       targetPort: 8388
       nodePort: 30000
   type: NodePort
-
 ---
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment-shadowsocks-1
+  name: shadowsocks
   labels:
-    app: shadowsocks-1
+    app: shadowsocks
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: shadowsocks-1
+      app: shadowsocks
   template:
     metadata:
       labels:
-        app: shadowsocks-1
+        app: shadowsocks
     spec:
       containers:
       - name: pod-shadowsocks
